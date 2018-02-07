@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; // 1 rem = 10px; 10px / 16px = 62.5%
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9 
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8 / 16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 62.5%; // 1rem = 13px, 12/16
+    }
+}
+
+body {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+// TEXT HIGHTLIGHTING
+::selection {
+  background: $color-primary-light; /* WebKit/Blink Browsers */
+  color: $color-white;
+}
+::-moz-selection {
+  background: $color-primary-light; /* Gecko Browsers */
+}
+
+// SCROLLBAR STYLING
+// ::-webkit-scrollbar {
+//     width: 10px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     background: $color-gray-light-1; 
+// }
+ 
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     background: $color-black; 
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//     background: $color-primary-light; 
+// }
