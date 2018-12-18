@@ -25,6 +25,20 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s .5s;
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto auto;
+      grid-template-areas: "top    bottom"
+                            "content content";
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      grid-template-areas: "top"
+                            "content";
+    }
   }
 
 
@@ -35,6 +49,9 @@
 
     &--bottom {
       grid-area: bottom;
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
 
@@ -55,7 +72,6 @@
     font-size: 1.4rem;
     margin-bottom: 4rem;
 
-
     -moz-column-count: 2;
     -moz-column-gap: 4rem;
     -moz-column-rule: 1px solid $color-gray-light-2;
@@ -68,6 +84,16 @@
         -ms-hyphens: auto;
        -moz-hyphens: auto;
             hyphens: auto;
+
+    @include respond(phone) {
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+         -moz-hyphens: auto;
+              hyphens: auto;
+  
+    }
   }
 
   &:target {
