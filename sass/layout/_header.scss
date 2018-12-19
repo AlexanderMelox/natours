@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: 
     linear-gradient(
       to right bottom, 
@@ -9,11 +9,17 @@
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+ 
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    height: 95vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  }
 
   // If the resolution is higher than 192dpi and the device is larger than 600px or the device is larger than 2000px then display the higher-res image
   @media (min-resolution: 192dpi) and (min-width: 37.5em),
+         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
          (min-width: 125em) {
     background-image: 
       linear-gradient(
